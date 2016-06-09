@@ -343,7 +343,10 @@ else
 		
 		};
 };
-	
+		/*
+		* Default Bambi Loadout Edited by jayman:
+		* Be very careful of brackets here:
+		***************************************************************
 		_cargoType = _x call ExileClient_util_cargo_getType;
 		switch (_cargoType) do
 		{
@@ -355,6 +358,12 @@ else
 		};
 	}
 	forEach getArray(configFile >> "CfgSettings" >> "BambiSettings" >> "loadOut");
+	*/
+	_randomUniform = ["U_C_Poor_2","U_C_Poor_1","U_C_Poor_shorts_1"] call BIS_fnc_selectRandom;
+	_randomHat = ["H_Hat_tan","H_StrawHat","H_StrawHat_dark"] call BIS_fnc_selectRandom;
+	_bambiPlayer forceAddUniform _randomUniform;
+	_bambiPlayer addHeadgear _randomHat;
+	}
 	[_sessionID, _requestingPlayer, _spawnLocationMarkerName, _bambiPlayer, _accountData] call ExileServer_object_player_createBambi;
 }
 catch
